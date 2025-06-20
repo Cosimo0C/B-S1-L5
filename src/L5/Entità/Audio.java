@@ -1,8 +1,11 @@
 package L5.Entità;
 
+import L5.Interfaccie.Avvia;
 import L5.Interfaccie.Riproducibile;
 
-public class Audio extends ElementoMutimediale implements Riproducibile {
+import java.util.Scanner;
+
+public class Audio extends ElementoMutimediale implements Riproducibile, Avvia {
     protected int durata;
     protected int volume;
 
@@ -15,6 +18,7 @@ public class Audio extends ElementoMutimediale implements Riproducibile {
 
     @Override
     public void play() {
+        Scanner scanner=new Scanner(System.in);
         System.out.println("Sta Riproducendo" + " " +this.titolo);
         for (int i = 0; i <this.durata ; i++) {
             System.out.print(this.titolo+" "+"Volume"+" ");
@@ -22,6 +26,24 @@ public class Audio extends ElementoMutimediale implements Riproducibile {
                 System.out.print("!");
             }
             System.out.println();
+        }
+        System.out.println("Premi 1 se vuoi aumentare il volume o 2 per abbassare il volume. 0 per uscire");
+        int volume= scanner.nextInt();
+        if (volume >= 0 & volume < 3){
+            switch (volume){
+                case 1:
+                    alzaVolume();
+                    break;
+                case 2:
+                    abbassaVolume();
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("PROBLEMA REGOLAZIONE VOLUME");
+            }
+        }else {
+            System.out.println("Il numero non è compreso tra 0 e 2");
         }
     }
 
@@ -51,5 +73,10 @@ public class Audio extends ElementoMutimediale implements Riproducibile {
             System.out.println("Il volume è al minimo");
         }
 
+    }
+
+    @Override
+    public void avvia() {
+    play();
     }
 }
