@@ -29,7 +29,7 @@ public class Main {
         int ris;
         do {
             System.out.println("Inserisci un numero tra 1 e 5 per scegliere il file. 0 per uscire!");
-            ris= scanner.nextInt();
+            ris=Integer.parseInt(scanner.nextLine());
             if (ris>0 & ris <= file.length){
                 int pos=ris-1;
                 file[pos].avvia();
