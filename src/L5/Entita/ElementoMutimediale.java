@@ -1,4 +1,4 @@
-package L5.Entità;
+package L5.Entita;
 
 public abstract class ElementoMutimediale {
     protected String titolo;

@@ -1,4 +1,4 @@
-package L5.Entità;
+package L5.Entita;
 
 import L5.Interfaccie.Avvia;
 import L5.Interfaccie.Riproducibile;

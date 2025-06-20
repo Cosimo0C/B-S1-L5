@@ -1,9 +1,8 @@
 package L5;
 
-import L5.Entità.Audio;
-import L5.Entità.ElementoMutimediale;
-import L5.Entità.Immagine;
-import L5.Entità.Video;
+import L5.Entita.Audio;
+import L5.Entita.Immagine;
+import L5.Entita.Video;
 import L5.Interfaccie.Avvia;
 
 import java.util.Scanner;
@@ -15,19 +14,19 @@ public class Main {
         System.out.println("Inserisci un nome");
         String nome= scanner.nextLine();
         System.out.println("Inserisci un valore di luminosità compreso tra 0 e 20");
-        int luminosità= scanner.nextInt();
+        int luminosita= scanner.nextInt();
         System.out.println("Inserisci un volare di volume compreso tra 0 e 20");
         int volume= scanner.nextInt();
         System.out.println("Inserisci una durata");
         int durata= scanner.nextInt();
-        Video v1 = new Video(nome, luminosità, volume, durata);
+        Video v1 = new Video(nome, luminosita, volume, durata);
         Video v2 = new Video("Avengers", 10, 15, 8);
         Audio a1= new Audio("audio12", 20, 30);
         Audio a2= new Audio("audio50", 8, 2);
         Immagine i1= new Immagine("Urlo", 5);
         Avvia [] file= {v1, v2, a1, a2, i1};
 
-        int ris=0;
+        int ris;
         do {
             System.out.println("Inserisci un numero tra 1 e 5 per scegliere il file. 0 per uscire!");
             ris= scanner.nextInt();
