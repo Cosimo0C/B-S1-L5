@@ -10,22 +10,35 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Video v1 = new Video("Spider-man", 5, 10, 10);
+        Scanner scanner =new Scanner(System.in);
+        System.out.println("Creiamo un video");
+        System.out.println("Inserisci un nome");
+        String nome= scanner.nextLine();
+        System.out.println("Inserisci un valore di luminosità compreso tra 0 e 20");
+        int luminosità= scanner.nextInt();
+        System.out.println("Inserisci un volare di volume compreso tra 0 e 20");
+        int volume= scanner.nextInt();
+        System.out.println("Inserisci una durata");
+        int durata= scanner.nextInt();
+        Video v1 = new Video(nome, luminosità, volume, durata);
         Video v2 = new Video("Avengers", 10, 15, 8);
         Audio a1= new Audio("audio12", 20, 30);
         Audio a2= new Audio("audio50", 8, 2);
         Immagine i1= new Immagine("Urlo", 5);
         Avvia [] file= {v1, v2, a1, a2, i1};
-        Scanner scanner =new Scanner(System.in);
+
+        int ris=0;
         do {
             System.out.println("Inserisci un numero tra 1 e 5 per scegliere il file. 0 per uscire!");
-            int ris= scanner.nextInt();
-            if (ris>=0& ris<6){
-
-            }else {
+            ris= scanner.nextInt();
+            if (ris>0 & ris <= file.length){
+                int pos=ris-1;
+                file[pos].avvia();
+            }else if (ris==0){
+                System.out.println("Fine!");
+            }else{
                 System.out.println("Il numero non è compreso tra 0 e 5");
-                break;
             }
-        }while (5<0);
+        }while (ris!=0);
     }
 }
